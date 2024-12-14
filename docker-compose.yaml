@@ -1,0 +1,21 @@
+version: '3.8'
+services:
+  ai_backend:
+    build: ./ai_backend
+    container_name: ai_backend
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./results:/results
+
+  frontend:
+    build: ./frontend
+    container_name: frontend
+    ports:
+      - "5000:5000"
+    environment:
+      - AI_BACKEND_URL=http://ai_backend:8000
+    volumes:
+      - ./results:/results
+    depends_on:
+      - ai_backend

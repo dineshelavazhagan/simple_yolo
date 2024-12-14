@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object Detection</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Object Detection</h2>
+        <p>Upload an image to detect objects. Once detection is done, use the controls to show/hide bounding boxes, labels, filter by confidence and classes, and optionally view JSON output.</p>
+
+        <div class="upload-area">
+            <form id="upload-form" method="post" enctype="multipart/form-data">
+                <input type="file" name="file" id="file" accept="image/*">
+                <label for="file">Choose an image</label>
+                <button type="submit" id="upload-button">Upload & Detect</button>
+            </form>
+        </div>
+
+        <!-- A flex container for image and side panel -->
+        <div class="main-content">
+            <div class="image-area">
+                <canvas id="canvas"></canvas>
+            </div>
+            
+            <div class="side-panel">
+                <div class="controls hidden">
+                    <h3>Controls</h3>
+                    <label>
+                        <input type="checkbox" id="show-bbox"> Show Bounding Boxes
+                    </label><br>
+                    <label class="hidden-label-option">
+                        <input type="checkbox" id="show-labels"> Show Labels
+                    </label><br>
+                    <div class="hidden-confidence">
+                        <label for="confidence-slider">Confidence:</label>
+                        <input type="range" id="confidence-slider" min="0" max="1" step="0.01" value="0.25">
+                    </div>
+                    <h4 class="hidden-classes">Classes:</h4>
+                    <div class="class-filters hidden-classes">
+                        <label><input type="checkbox" class="class-filter" data-class-id="0" checked> Person</label><br>
+                        <label><input type="checkbox" class="class-filter" data-class-id="1" checked> Bicycle</label><br>
+                        <label><input type="checkbox" class="class-filter" data-class-id="2" checked> Car</label><br>
+                        <label><input type="checkbox" class="class-filter" data-class-id="3" checked> Motorcycle</label><br>
+                        <label><input type="checkbox" class="class-filter" data-class-id="5" checked> Bus</label><br>
+                    </div>
+                </div>
+
+                <div class="json-area hidden">
+                    <h3>JSON Output</h3>
+                    <label><input type="checkbox" id="show-json"> Show JSON</label>
+                    <pre id="json-output"></pre>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detection Results</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            margin: auto;
+            text-align: center;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            margin-top: 20px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        pre {
+            background-color: #eee;
+            border: 1px solid #ddd;
+            padding: 10px;
+            overflow: auto;
+            border-radius: 4px;
+            text-align: left;
+            margin-top: 20px;
+        }
+        h2 {
+            color: #333;
+        }
+        a {
+            display: block;
+            margin-top: 20px;
+            color: #0275d8;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Detection Results</h2>
+        {% if image_path %}
+            <img src="/{{ image_path }}" alt="Detected Objects">
+        {% endif %}
+        {% if json_data %}
+            <pre>{{ json_data }}</pre>
+        {% endif %}
+        <a href="/">Upload Another Image</a>
+    </div>
+</body>
+</html>
