@@ -121,6 +121,16 @@ project/
     *   Providing a cleaner, more extensible codebase and a better user experience.
 *   The LLM was used after the initial solution was working, as a means to perfect and polish the final deliverable.
 
+## Results:
+# All Detections
+![alt text](https://github.com/dineshelavazhagan/simple_yolo/blob/main/full_detection.png)
+# Person Detections
+![alt text](https://github.com/dineshelavazhagan/simple_yolo/blob/main/person_alone.png)
+# Car Detections
+![alt text](https://github.com/dineshelavazhagan/simple_yolo/blob/main/car_alone.png)
+
+
+
 ## Conclusion
 
 This project demonstrates a simple but complete microservice-based object detection solution using Docker, Flask, FastAPI, and YOLO. It can serve as a template or starting point for more complex object detection systems.
